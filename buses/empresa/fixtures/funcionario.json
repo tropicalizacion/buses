@@ -6,7 +6,8 @@
         "identificacion": "1040",
         "url_site": "Andres-Alfaro-Analista-150x150.jpg",
         "nombre": "Andrés Alfaro",
-        "cargo": "Analista"
+        "cargo": "Analista",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -16,7 +17,8 @@
         "identificacion": "1041",
         "url_site": "Arianny-Gamboa-Asistente-de-Operaciones-150x150.jpg",
         "nombre": "Arianny Gamboa",
-        "cargo": "Asistente de Operaciones"
+        "cargo": "Asistente de Operaciones",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -26,7 +28,8 @@
         "identificacion": "1042",
         "url_site": "Grethel-Castro-Asistente-Administrativa-150x150.jpg",
         "nombre": "Grethel Castro",
-        "cargo": "Asistente de Gerencia"
+        "cargo": "Asistente de Gerencia",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -36,7 +39,8 @@
         "identificacion": "1043",
         "url_site": "Vinicio-Zuñiga-Jefe-Departamento-de-Operaciones-150x150.jpg",
         "nombre": "Vinicio Zúñiga",
-        "cargo": "Jefe Departamento de Operaciones"
+        "cargo": "Jefe Departamento de Operaciones",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -46,7 +50,8 @@
         "identificacion": "406",
         "url_site": "Luis-Mora-Ureña-Lavador-150x150.jpg",
         "nombre": "Luis Mora Ureña",
-        "cargo": "Lavador"
+        "cargo": "Lavador",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -56,7 +61,8 @@
         "identificacion": "405",
         "url_site": "Luis-García-Lobo-Chofer-150x150.jpg",
         "nombre": "Luis García Lobo",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -66,7 +72,8 @@
         "identificacion": "402",
         "url_site": "José-Piedra-Arias-Chofer-150x150.jpg",
         "nombre": "José Piedra Arias",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -76,7 +83,8 @@
         "identificacion": "394",
         "url_site": "Heyner-Villalobos-Bodeguero-150x150.jpg",
         "nombre": "Heyner Villalobos",
-        "cargo": "Bodeguero"
+        "cargo": "Bodeguero",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -86,7 +94,8 @@
         "identificacion": "389",
         "url_site": "Guillermo-Segura-Arias-Chofer-150x150.jpg",
         "nombre": "Guillermo Segura Arias",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -96,7 +105,8 @@
         "identificacion": "385",
         "url_site": "Enrique-Díaz-Monge-Mecánico-150x150.jpg",
         "nombre": "Enrique Díaz Monge",
-        "cargo": "Mecánico"
+        "cargo": "Mecánico",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -106,7 +116,8 @@
         "identificacion": "382",
         "url_site": "Elberth-Solano-Gamboa-Chofer-150x150.jpg",
         "nombre": "Elberth Solano Gamboa",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -116,7 +127,8 @@
         "identificacion": "379",
         "url_site": "Edgar-Madrigal-Méndez-Chofer-150x150.jpg",
         "nombre": "Edgar Madrigal Méndez",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -126,7 +138,8 @@
         "identificacion": "373",
         "url_site": "Benjamín-Mora-Ortega-Despachador-150x150.jpg",
         "nombre": "Benjamín Mora Ortega",
-        "cargo": "Despachador"
+        "cargo": "Despachador",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -136,7 +149,8 @@
         "identificacion": "371",
         "url_site": "Andrey-Masís-Monge-Chofer-150x150.jpg",
         "nombre": "Andrey Masís Monge",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -146,7 +160,8 @@
         "identificacion": "369",
         "url_site": "Alexis-Vindas-Ureña-Recaudador-150x150.jpg",
         "nombre": "Alexis Vindas Ureña",
-        "cargo": "Recaudador"
+        "cargo": "Recaudador",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -156,7 +171,8 @@
         "identificacion": "429",
         "url_site": "Wilberth-Mora-Hidalgo-Chofer-150x150.jpg",
         "nombre": "Wilberth Mora Hidalgo",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -166,7 +182,8 @@
         "identificacion": "418",
         "url_site": "Roberto-Aguero-Santana-Chofer-150x150.jpg",
         "nombre": "Roberto Agüero Santana",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -176,7 +193,8 @@
         "identificacion": "413",
         "url_site": "Nelson-Portilla-Calvo-Despachador-150x150.jpg",
         "nombre": "Nelson Portilla Calvo",
-        "cargo": "Despachador"
+        "cargo": "Despachador",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -186,7 +204,8 @@
         "identificacion": "409",
         "url_site": "Mario-Castro-Durán-Chofer-150x150.jpg",
         "nombre": "Mario Castro Durán",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -196,7 +215,8 @@
         "identificacion": "803",
         "url_site": "Alexander-Cardenas-Chinchilla-150x150.jpg",
         "nombre": "Alexander Cárdenas Chinchilla",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -206,7 +226,8 @@
         "identificacion": "896",
         "url_site": "Carlos-Alpízar-Rodríguez-150x150.jpg",
         "nombre": "Carlos Alpízar Rodríguez",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -216,7 +237,8 @@
         "identificacion": "897",
         "url_site": "Carlos-Vargas-Alpízar1-150x150.jpg",
         "nombre": "Carlos Vargas Alpízar",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -226,7 +248,8 @@
         "identificacion": "1018",
         "url_site": "José-Alfredo-Salazar-e1497903453169-150x150.jpg",
         "nombre": "José Alfredo Salazar",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -236,7 +259,8 @@
         "identificacion": "1019",
         "url_site": "Randall-Carrión-e1497903487241-150x150.jpg",
         "nombre": "Randall Carrión",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -246,7 +270,8 @@
         "identificacion": "1023",
         "url_site": "Felix-Salazar-e1497974224902-150x150.jpg",
         "nombre": "Félix Salazar",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -256,7 +281,8 @@
         "identificacion": "1024",
         "url_site": "Osvaldo-López-e1497974291560-150x150.jpg",
         "nombre": "Osvaldo López",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -266,7 +292,8 @@
         "identificacion": "1026",
         "url_site": "Ronald-Brenes-e1497989310138-150x150.jpg",
         "nombre": "Ronald Brenes",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -276,7 +303,8 @@
         "identificacion": "1032",
         "url_site": "Martín-Alvarado-Chofer-e1498058340543-150x150.jpg",
         "nombre": "Martín Alvarado",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -286,7 +314,8 @@
         "identificacion": "1031",
         "url_site": "Luis-Naranjo-Chofer-e1498058299882-150x150.jpg",
         "nombre": "Luis Naranjo",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -296,7 +325,8 @@
         "identificacion": "1028",
         "url_site": "José-Alfredo-Masís-Chofer-e1498058131292-150x150.jpg",
         "nombre": "José Alfredo Masís",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -306,7 +336,8 @@
         "identificacion": "1034",
         "url_site": "Luis-Hernandez-Chofer-e1498070105895-150x150.jpg",
         "nombre": "Luis Hernandez",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -316,7 +347,8 @@
         "identificacion": "1039",
         "url_site": "Minor-Cárdenas-Chofer-e1498076453441-150x150.jpg",
         "nombre": "Minor Cárdenas",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -326,7 +358,8 @@
         "identificacion": "1038",
         "url_site": "Oscar-Castro-Chofer-e1498076478986-150x150.jpg",
         "nombre": "Oscar Castro",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -336,7 +369,8 @@
         "identificacion": "1037",
         "url_site": "Harold-Vargas-Chofer-e1498076500231-150x150.jpg",
         "nombre": "Harold Vargas",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -346,7 +380,8 @@
         "identificacion": "1080",
         "url_site": "Melvin-Castro-Chofer-e1498253380446-150x150.jpg",
         "nombre": "Melvin Castro",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -356,7 +391,8 @@
         "identificacion": "1075",
         "url_site": "Victor-Valverde-Chofer-e1498253172743-150x150.jpg",
         "nombre": "Víctor Valverde",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -366,7 +402,8 @@
         "identificacion": "1074",
         "url_site": "Wilberth-Zuñiga-Chofer-e1498253139146-150x150.jpg",
         "nombre": "Wilberth Zúñiga",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -376,7 +413,8 @@
         "identificacion": "1073",
         "url_site": "Javier-Mora-Chofer-150x150.jpg",
         "nombre": "Javier Mora",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -386,7 +424,8 @@
         "identificacion": "1072",
         "url_site": "German-Mora-Chaneador-e1498253105765-150x150.jpg",
         "nombre": "German Mora",
-        "cargo": "Chaneador"
+        "cargo": "Chaneador",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -396,7 +435,8 @@
         "identificacion": "1070",
         "url_site": "Edgar-Barboza-Chofer-e1498253072711-150x150.jpg",
         "nombre": "Édgar Barboza",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -406,7 +446,8 @@
         "identificacion": "1069",
         "url_site": "César-Garro-Guarda-de-Seguridad1-e1498252956432-150x150.jpg",
         "nombre": "César Garro",
-        "cargo": "Chofer"
+        "cargo": "Guarda de seguridad",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -416,7 +457,8 @@
         "identificacion": "1067",
         "url_site": "Carlos-Luis-Mora-Chofer-e1498252995902-150x150.jpg",
         "nombre": "Carlos Luis Mora",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -425,8 +467,9 @@
     "fields": {
         "identificacion": "1066",
         "url_site": "Alexander-Duran-Mecánico-e1498252892926-150x150.jpg",
-        "nombre": "Alexander Duran",
-        "cargo": "Mecánico"
+        "nombre": "Alexander Durán",
+        "cargo": "Mecánico",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -436,7 +479,8 @@
         "identificacion": "1102",
         "url_site": "Carlos-Cárdenas-Chofer-e1498755480948-150x150.jpg",
         "nombre": "Carlos Cárdenas",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -446,7 +490,8 @@
         "identificacion": "1104",
         "url_site": "Mario-Padilla-Mecánico-e1498759622597-150x150.jpg",
         "nombre": "Mario Padilla",
-        "cargo": "Mecánico"
+        "cargo": "Mecánico",
+        "fecha_nacimiento": "2021-11-29"
     }
 },
 {
@@ -456,6 +501,7 @@
         "identificacion": "1105",
         "url_site": "Ronald-Zuñiga-Chofer-150x150.jpg",
         "nombre": "Ronald Zúñiga",
-        "cargo": "Chofer"
+        "cargo": "Chofer",
+        "fecha_nacimiento": "2021-11-29"
     }
 }]

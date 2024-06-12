@@ -1,15 +1,21 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Empresa
 from .models import Funcionario
+from datetime import datetime
 
 # Create your views here.
 
 def empresa(request):
     empresa = get_object_or_404(Empresa, codigo='TSG')
     funcionarios = Funcionario.objects.all()
+
+    # Cumpleañeros del mes
+    cumpleañeros = funcionarios.filter(fecha_nacimiento__month=datetime.now().month)
+
     context = {
         'empresa': empresa,
-        'funcionarios': funcionarios
+        'funcionarios': funcionarios,
+        'cumpleaneros': cumpleañeros
     }
     return render(request, 'empresa.html', context)
 

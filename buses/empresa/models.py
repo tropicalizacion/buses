@@ -17,16 +17,12 @@ class Empresa(models.Model):
 
 class Funcionario(models.Model):
     identificacion = models.IntegerField()
-
-    # Prueba
     url_site = models.CharField(max_length=256)
-
     nombre = models.CharField(max_length=256)
-    # apellido_a = models.CharField(max_length=256)
-    # apellido_b = models.CharField(max_length=256)
+    # primer_apellido = models.CharField(max_length=128)
+    # segundo_apellido = models.CharField(max_length=128)
     cargo = models.CharField(max_length=256)
-    # nacimiento = models.DateField()
+    fecha_nacimiento = models.DateField()
 
-    # FIXME:
     def __str__(self):
         return self.nombre

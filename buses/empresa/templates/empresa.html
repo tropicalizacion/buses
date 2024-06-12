@@ -122,7 +122,36 @@
   </small></p>
 </section>
 
-<!-- Reseña histórica 
+{# Esta sección es solo visible cumpleañeros tiene elementos #}
+{% if cumpleaneros %}
+<!-- Cumpleañeros -->
+<section id="cumpleaneros">
+
+    <hr>
+    <h2>Cumpleañeros del mes</h2>
+
+    Transportes San Gabriel da un caluroso abrazo a nuestros compañeros que se encuentran de manteles largos en el mes de {{ cumpleaneros.first.fecha_nacimiento|date:"F" }}:
+
+    <div class="container-fluid">
+        {% for cumpleanero in cumpleaneros %}
+        <div class="row mt-2">
+            <div class="col">
+                <div class="avatar avatar-lg avatar-circle mb-4">
+                    <img src="{% static '/img/globos.svg' %}" alt="globos"></br>
+                    <img class="avatar-img" src="{% static '/img/personal/' %}{{ cumpleanero.url_site }}" alt="{{ cumpleanero.nombre }} - {{ cumpleanero.cargo }}">
+                </div>
+            </div>
+            <div class="col">
+                    {{ cumpleanero }} cumpleaños el {{ cumpleanero.fecha_nacimiento|date:'l d' }} muchas felicidades!!
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</section>
+{% endif %}
+
+<!-- Reseña histórica
 
 <section id="resena">
 
