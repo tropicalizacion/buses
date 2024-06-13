@@ -1,6 +1,6 @@
 ruta_app.component('mapa-sangabriel', {
-    template:/*html*/ 
-            `
+    template: /*html*/
+    `
             <div class="container text-center">
             <div class="row">
                 <div class="col-md-2">
@@ -36,10 +36,12 @@ ruta_app.component('mapa-sangabriel', {
                 </div>
             </div>
         </div>
-            <div id="mapId" class="map map-home" style="margin:auto; height:400px; max-width: 540px;"></div>
-                <br/>
-
-            <br/>`,
+            <div class="row">
+                <div class="col-12">
+                    <div id="mapId" class="map map-home" style="margin:auto; height:400px; max-width: 540px;"></div>
+                </div>
+            </div>
+`,
     data() {
         return {
             center: [45.51, -122.68],

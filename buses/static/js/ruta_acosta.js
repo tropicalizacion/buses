@@ -1,13 +1,10 @@
 ruta_app.component("mapa-acosta", {
-  /*html*/
-  template: `
+    template: /*html*/
+    `
             <div class="container text-center">
-                
                 <div class="row">
-                    <div class="col-sm-1">
-                    </div>
-                    <div class="col-sm-10">
-                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <div class="col">
+                        <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
                             <label class="btn btn-xs btn-primary active">
                             <input type="radio"  v-on:click="updateSelectedRoundTripRoute(0)" checked> San&nbsp;Luis
                             </label>
@@ -19,11 +16,9 @@ ruta_app.component("mapa-acosta", {
                             </label>
                         </div>
                     </div>
-                    <div class="col-sm-1">
-                    </div>
                 </div>
-                <br/>            
-                <div class="col-md-12">
+                <br/>
+                <div class="col">
                     <div class="row">
                         <div class="col-2">
                         </div>
@@ -48,7 +43,7 @@ ruta_app.component("mapa-acosta", {
                                 {{currentRoundTripRoute.toRouteName}}
                             </p>
                         </div>
-                        <div class="col-2">                                
+                        <div class="col-2">
                         </div>
                     </div>
                 </div>
@@ -60,10 +55,7 @@ ruta_app.component("mapa-acosta", {
                         <div id="mapId" class="map map-home" style="margin:auto; height:400px; max-width: 540px;"></div>
                     </div>
                 </div>
-                <br/>
-
-            </div>
-            <br/>`,
+`,
   data() {
     return {
       center: [45.51, -122.68],

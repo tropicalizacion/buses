@@ -307,13 +307,20 @@ NOTA: TODO: Este div no tiene terminación, hay que hacer que cierre consistente
 <section id="mapa">
 
     <hr>
-    <h2><i class="fas fa-map color-ruta"></i> Mapa de la ruta</h2>
-    {% if route.short_name == 'Acosta' %}
-    <mapa-acosta></mapa-acosta>
-    {% else %}
-    <mapa-sangabriel></mapa-sangabriel>
-    {% endif %}
+    <h2><i class="fas fa-map color-ruta"></i> Mapa de la ruta {{route.short_name}}</h2>
 
+    <div style="max-width: 580px;" class="card text-center p-3 mb-5 mx-auto borde-color-ruta">
+
+        {% if route.short_name == 'Acosta' %}
+        <mapa-acosta></mapa-acosta>
+
+        {% else %}
+        <mapa-sangabriel></mapa-sangabriel>
+
+        {% endif %}
+    </div>
+    <br/>
+    <br/>
 </section>
 
 <!-- Paradas autorizadas -->
