@@ -99,6 +99,16 @@ NOTA: TODO: Este div no tiene terminación, hay que hacer que cierre consistente
     </div>
     {% endif %}
 
+    {% if horario_especial_feriado %}
+    <div class="alert alert-soft-danger" role="alert">
+        <p>
+            <ol class="fa-ul">
+                <li>Hoy es un día feriado por lo que el horario de servicio es horario de <strong>Domingo</strong>.</li>
+            </ol>
+        </p>
+    </div>
+    {% endif %}
+
 <!-- Tabla de horario -->
 
 <section id="horario">

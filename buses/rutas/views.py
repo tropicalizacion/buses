@@ -3,7 +3,7 @@ from .models import FareAttribute, Route, Shape, Calendar, Trip, Stop, StopTime,
 from datetime import datetime
 from itertools import zip_longest
 from django.conf import settings
-from django.db.models import Q
+# from django.db.models import Q
 
 
 def rutas(request):
@@ -19,8 +19,6 @@ def rutas(request):
     }
 
     return render(request, 'rutas.html', context)
-
-# Esta sí es
 
 def ruta(request, url_ruta):
     ''' Función para mostrar la información de cada ruta.
@@ -156,6 +154,10 @@ def ruta(request, url_ruta):
     # Feriados
 
     feriados = CalendarDate.objects.filter(exception_type='1')
+    horario_especial_feriado = False
+    if ahora.date() in [i.date for i in feriados]: # Es hoy un feriado?
+        # Es un día feriado con horario especial
+        horario_especial_feriado = True
 
     # Actualización de información del suministro
 
@@ -169,16 +171,16 @@ def ruta(request, url_ruta):
 
     if url_ruta == 'sangabriel':
         desde = ['LM_0', 'SG_0', 'SJ_0']
-        hacia = ['SJ_1', 'SG_1', 'LM_1']        
+        hacia = ['SJ_1', 'SG_1', 'LM_1']
     elif url_ruta == 'acosta':
         desde = ['SI_0', 'JO_0', 'SJ_0']
         hacia = ['SJ_1', 'JO_1', 'SI_1']
-    
+
     #paradas_desde = Stop.objects.filter(stop_id__startswith=desde[0]).union(Stop.objects.filter(stop_id__startswith=desde[1])).union(Stop.objects.filter(stop_id__startswith=desde[2]))
     #paradas_desde = Stop.objects.filter(Q(stop_id__startswith=desde[0]) | Q(stop_id__startswith=desde[1]) | Q(stop_id__startswith=desde[2]))
     #paradas_hacia = Stop.objects.filter(stop_id__startswith=hacia[0]).union(Stop.objects.filter(stop_id__startswith=hacia[1])).union(Stop.objects.filter(stop_id__startswith=hacia[2]))
     #paradas_hacia = Stop.objects.filter(Q(stop_id__startswith=hacia[0]) | Q(stop_id__startswith=hacia[1]) | Q(stop_id__startswith=hacia[2])).order_by('pk')
-    
+
     # Solución horrible (terrible, terrible)
     paradas_desde_0 = Stop.objects.filter(stop_id__startswith=desde[0])
     paradas_desde_1 = Stop.objects.filter(stop_id__startswith=desde[1])
@@ -197,6 +199,7 @@ def ruta(request, url_ruta):
         'horario_js_hacia_sanjose': horario_js_hacia_sanjose,
         'horario_js_desde_sanjose': horario_js_desde_sanjose,
         'feriados': feriados,
+        'horario_especial_feriado': horario_especial_feriado,
         'informacion': informacion,
         'tarifas': tarifas,
         # Parte de la solución horrible
