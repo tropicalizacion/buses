@@ -1,16 +1,79 @@
-<div class="row">
+<div class="row mt-4">
   <div class="col-sm">
-    <div class="card text-center p-3 mb-5 mx-auto borde-color-ruta" style="max-width: 540px">
-      <div class="card-body proxbus-card-body">
+    <div class="card text-center p-3 mx-auto bg-light" style="max-width: 540px">
+      <div class="card-body">
         <div class="text-center">
-          <h2><span class="badge badge-dark" id="DigitalCLOCK">{% verbatim %}{{ hora }}{% endverbatim %}</span></h2>
-          <h5><span class="badge badge-secondary"><span class="text-capitalize">{{ fecha.0 }}</span> {{ fecha.1 }} de {{ fecha.2 }} de {{ fecha.3 }}</span></h5>
+          <h2><span class="badge text-bg-secondary" id="DigitalCLOCK">--:-- --</span></h2>
+          <h5>
+            <span class="badge text-bg-dark" id="DigitalDATE">
+              <span id="dayName"></span>
+              <span id="dayNumber"></span>
+              de
+              <span id="monthName"></span>
+              de
+              <span id="year"></span>
+            </span>
+          </h5>
         </div>
         <h3 class="card-title">Próximos buses</h3>
-        <h2 class="card-subtitle color-ruta"><i class="fas fa-bus"></i> {{ route.short_name }}</h2>
+        <h2 class="card-subtitle fw-bold color-ruta mb-4">
+          <i class="bi bi-bus-front-fill"></i>
+          {{ route.short_name }}
+        </h2>
         <proximobus route_short_name="{{ route.short_name }}"></proximobus>
-        <nav class="js-scroll-nav"><a class="small text-uppercase text-muted" href="#horario">Ver horario completo</a></nav>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  // Wait for DOM to be fully loaded
+  document.addEventListener("DOMContentLoaded", function () {
+    function updateDateTime() {
+      const now = new Date();
+
+      // Update clock
+      const timeString = now.toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "2-digit",
+        hour12: true,
+      });
+
+      const clockElement = document.getElementById("DigitalCLOCK");
+      if (clockElement) {
+        clockElement.textContent = timeString;
+      }
+
+      // Update date
+      const dayNames = ["Domingo ", "Lunes ", "Martes ", "Miércoles ", "Jueves ", "Viernes ", "Sábado "];
+      const monthNames = [
+        "enero",
+        "febrero",
+        "marzo",
+        "abril",
+        "mayo",
+        "junio",
+        "julio",
+        "agosto",
+        "septiembre",
+        "octubre",
+        "noviembre",
+        "diciembre",
+      ];
+
+      const dayNameElement = document.getElementById("dayName");
+      const dayNumberElement = document.getElementById("dayNumber");
+      const monthNameElement = document.getElementById("monthName");
+      const yearElement = document.getElementById("year");
+
+      if (dayNameElement) dayNameElement.textContent = dayNames[now.getDay()];
+      if (dayNumberElement) dayNumberElement.textContent = now.getDate();
+      if (monthNameElement) monthNameElement.textContent = monthNames[now.getMonth()];
+      if (yearElement) yearElement.textContent = now.getFullYear();
+    }
+
+    // Update immediately and then every second
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+  });
+</script>

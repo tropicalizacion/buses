@@ -4,57 +4,70 @@
  *
  */
 
+/* Add to your custom.css file */
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
 .proxbus-card-body {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    padding-left: 0;
-    padding-right: 0;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .proxbus-container {
-    padding: 0;
+  padding: 0;
 }
 
 .proxbus-row {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .proxbus-emph-row {
-    /* Emphasis column*/
-    margin-left: 18px;
-    margin-right: 18px;
-    background-color: #d7dde4
+  /* Emphasis column*/
+  margin-left: 18px;
+  margin-right: 18px;
+  background-color: #d7dde4;
 }
 
 .proxbus-emph-col {
-    /* Emphasis column*/
-    padding-left: 0;
-    padding-right: 0;
-    font-size: 1.25rem;
+  /* Emphasis column*/
+  padding-left: 0;
+  padding-right: 0;
+  font-size: 1.25rem;
 }
 
 .custom-sticky-top {
-    position: sticky;
-    top: 0px;
+  position: sticky;
+  top: 0px;
 }
 
 .custom-margin-top {
-    margin-top: 5ch;
+  margin-top: 5ch;
 }
 
 .custom-vertical-space {
-    min-height: 10ch;
+  min-height: 10ch;
 }
 
 .custom-badge {
-    min-width: 4.2ch;
+  min-width: 4.2ch;
 }
 
-#content-desktop {display: block;}
-#content-mobile {display: none;}
+#content-desktop {
+  display: block;
+}
+#content-mobile {
+  display: none;
+}
 
 @media screen and (max-width: 768px) {
-    #content-desktop {display: none;}
-    #content-mobile {display: block;}
+  #content-desktop {
+    display: none;
+  }
+  #content-mobile {
+    display: block;
+  }
 }

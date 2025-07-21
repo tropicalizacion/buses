@@ -18,7 +18,7 @@
         }
         .borde-color-ruta {
             border-color: #{{ route.color }};
-            border-width: 1px;
+            border-width: 2px;
         }
         .azul {
             color: #0400FF;
@@ -28,235 +28,208 @@
 
 {% block content %}
 
-<div class="custom-vertical-space"></div>
-
 <!-- Información de la ruta -->
 
 <section id="informacion">
 
-    <span class="small text-cap text-secondary">
-        Ruta de autobuses en Costa Rica
-    </span>
+    <h1 class="display-5 fw-bold text-center my-5">
+        {{ route.short_name }} &nbsp; <i class="bi bi-bus-front-fill" style="color:#{{ route.color }};"></i> &nbsp; San José 
+    </h1>
 
-    <h1>{{ route.short_name }} &nbsp; <i class="fas fa-bus" style="color:#{{ route.color }};"></i> &nbsp; San José </h1>
+    <div class="my-1"> 
+        <i class="bi bi-google"></i> Maps &nbsp;|&nbsp;
+        {% if route.short_name == 'Acosta' %} 
+        <span class="badge fondo-color-sanluis">Acosta</span> <span class="badge fondo-color-turrujal">Turrujal</span> 
+        {% else %} 
+        <span class="badge fondo-color-sangabriel">San Gabriel</span> {% endif %} 
+    </div>
 
-    <p> {% if route.short_name == 'Acosta' %} <span class="badge fondo-color-sanluis">Acosta</span> <span class="badge fondo-color-turrujal">Turrujal</span> {% else %} <span class="badge fondo-color-sangabriel">San Gabriel</span> {% endif %} </p>
-    <p>
-        <div class="card borde-color-ruta">
+        <div class="card bg-light mt-4">
             <div class="card-body lead">
                 {{ route.desc }}
             </div>
         </div>
-    </p>
-
-    <p>
-        <nav class="js-scroll-nav text-center">
-            <a class="btn btn-sm btn-icon transition-3d-hover fondo-color-ruta" data-toggle="tooltip" data-placement="top" title="Horarios" href="#horario"><i class="fas fa-clock"></i></a> &nbsp;
-            <a class="btn btn-sm btn-icon transition-3d-hover fondo-color-ruta" data-toggle="tooltip" data-placement="top" title="Tarifas" href="#tarifas"><i class="fas fa-ticket-alt"></i></a> &nbsp;
-            <a class="btn btn-sm btn-icon transition-3d-hover fondo-color-ruta" data-toggle="tooltip" data-placement="top" title="Mapa" href="#mapa"><i class="fas fa-map"></i></a> &nbsp;
-            <a class="btn btn-sm btn-icon transition-3d-hover fondo-color-ruta" data-toggle="tooltip" data-placement="top" title="Paradas" href="#paradas"><i class="fas fa-map-marker-alt"></i></a>
-        </nav>
-    </p>
 
 </section>
-
-{% comment %}
-El siguiente DIV corresponde a la división en la cual se va a montar la aplicación de VUE en frontend,
-el div debe contener todas los componentes y templates que serán utilizados por el framework para
-renderizar las aplicaciones hechas en JS, es importante que todo desarrollo con VUE se haga dentro de
-del div con id ruta_vue_app ya que fuera de este div la sintaxis será ignorada
-
-NOTA: TODO: Este div no tiene terminación, hay que hacer que cierre consistentemente, tomando solo lo necesario
-{% endcomment %}
-
-<!-- Horario especial de Semana Santa -->
-
-<!-- Aplicación "próximo bus" -->
-<div id='ruta_vue_app'> <!-- APP VUE -->
-{% include "proximobus.html" %}
-
-    <!-- /div> FIXME -->
-
-    {# Nota sobre los ramales de Acosta #}
-    {% if route.short_name == 'Acosta' %}
-    <div class="alert alert-soft-secondary" role="alert">
-        <p>
-            <ol class="fa-ul">
-                <li><span class="fa-li"><i class="fas fa-info-circle"></i></span>La ruta de Acosta tiene las siguientes trayectorias (ver <a href="#mapa">mapa de la ruta</a>):</li>
-            </ol>
-            <dl class="small">
-                <dt><span class="badge fondo-color-sanluis align-middle">SL</span> <span class="color-sanluis text-uppercase font-weight-bold align-middle">San Luis</span></dt>
-                <dd><strong>Sale desde</strong> o <strong>va hacia</strong> San Luis y pasa por el centro de San Ignacio de Acosta.</dd>
-
-                <dt><span class="badge fondo-color-turrujal align-middle">TU</span> <span class="color-turrujal text-uppercase font-weight-bold align-middle">Turrujal</span></dt>
-                <dd><strong>Sale desde</strong> o <strong>va hacia</strong> Turrujal y pasa por el centro de San Ignacio de Acosta.</dd>
-
-                <dt><span class="badge badge-secondary align-middle">AC</span> <span class="text-secondary text-uppercase font-weight-bold align-middle">Acosta</span></dt>
-                <dd><strong>Sale desde</strong> el centro de San Ignacio de Acosta hacia San José.</dd>
-
-                <dt><span class="badge badge-info align-middle">JO</span> <span class="text-secondary text-uppercase font-weight-bold align-middle">Jorco</span></dt>
-                <dd><strong>Sale desde</strong> Vuelta de Jorco de Aserrí hacia San José y <strong>no</strong> pasa por el centro de San Ignacio de Acosta.</dd>
-            </dl>
-        </p>  
-    </div>
-    {% endif %}
 
 <!-- Anuncios -->
 
 {% if anuncios %}
-<section id="anuncios">
+<section id="anuncios" class="mt-4">
 
-    <div class="alert alert-light" role="alert">
-        <h3 class="alert-heading"><i class="fas fa-bell"></i> Anuncios</h3>
+    <div class="alert alert-warning" role="alert">
+        <h3 class="alert-heading"><i class="bi bi-bell-fill"></i> Anuncios</h3>
         <dl>
             {% for anuncio in anuncios %}
             <dt>{{ anuncio.titulo }}</dt>
             <dd>{{ anuncio.descripcion }}</dd>
             {% endfor %}
         </dl>
-        <hr>
-        <p class="mb-0">Contacto: <a href="{% url 'contacto' %}">Transportes San Gabriel</a></p>
     </div>
 
 </section>
 {% endif %}
+
+<!-- Aplicación "próximo bus" -->
+<div id='ruta_vue_app'> <!-- APP VUE -->
+{% include "proximobus.html" %}
+
+    {# Nota sobre los ramales de Acosta #}
+    {% if route.short_name == 'Acosta' %}
+    <div class="text-center my-4">
+        <button class="btn btn-outline-secondary mb-4" type="button" data-bs-toggle="collapse" data-bs-target="#acostaShapes" aria-expanded="false" aria-controls="acostaShapes">
+            <i class="bi bi-signpost-2-fill"></i>
+            Más información sobre los ramales de Acosta
+        </button>
+        
+        <div class="collapse text-start" id="acostaShapes">
+            <div class="card card-body">
+                <p>La ruta de Acosta tiene las siguientes trayectorias (ver <a href="#mapa">mapa de la ruta</a>):</p>
+                <dl class="small">
+                    <dt><span class="badge fondo-color-sanluis align-middle">SL</span> <span class="color-sanluis text-uppercase font-weight-bold align-middle">San Luis</span></dt>
+                    <dd><strong>Sale desde</strong> o <strong>va hacia</strong> San Luis y pasa por el centro de San Ignacio de Acosta.</dd>
+
+                    <dt><span class="badge fondo-color-turrujal align-middle">TU</span> <span class="color-turrujal text-uppercase font-weight-bold align-middle">Turrujal</span></dt>
+                    <dd><strong>Sale desde</strong> o <strong>va hacia</strong> Turrujal y pasa por el centro de San Ignacio de Acosta.</dd>
+
+                    <dt><span class="badge text-bg-secondary align-middle">AC</span> <span class="text-secondary text-uppercase font-weight-bold align-middle">Acosta</span></dt>
+                    <dd><strong>Sale desde</strong> el centro de San Ignacio de Acosta hacia San José.</dd>
+
+                    <dt><span class="badge text-bg-info align-middle">JO</span> <span class="text-secondary text-uppercase font-weight-bold align-middle">Jorco</span></dt>
+                    <dd><strong>Sale desde</strong> Vuelta de Jorco de Aserrí hacia San José y <strong>no</strong> pasa por el centro de San Ignacio de Acosta.</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 
 <!-- Tabla de horario -->
 
 <section id="horario">
 
     <hr>
-    <h2><i class="fas fa-clock color-ruta"></i> Horarios</h2>
+    <h2><i class="bi bi-clock-fill color-ruta"></i> Horarios</h2>
 
     <!-- Nota sobre el horario de salida -->
-    <div class="alert alert-secondary" role="alert">
-        <p>
-            <ol class="fa-ul">
-                <li>
-                    <span class="fa-li"><i class="fas fa-info-circle"></i></span>
-                    La hora del viaje hacia San José es en la parada de
-                    {% if route.short_name == 'Acosta' %}
-                        <strong>Acosta centro</strong>
-                    {% else %}
-                        <strong>San Gabriel centro.</strong>
-                    {% endif %}                  
-                    Los buses salen <strong>15 minutos antes</strong> desde
-                    {% if route.short_name == 'Acosta' %}
-                        San Luis o Turrujal, según se indica. Los viajes desde Jorco no pasan por Acosta centro.
-                    {% else %}
-                        Los Mangos.
-                    {% endif %}    
-                </li>
-            </ol>
-        </p>
+    <div class="alert alert-secondary my-3" role="alert">
+        La hora del viaje hacia San José es en la parada de
+        {% if route.short_name == 'Acosta' %}
+            <strong>Acosta centro</strong>
+        {% else %}
+            <strong>San Gabriel centro.</strong>
+        {% endif %}                  
+        Los buses salen <strong>15 minutos antes</strong> desde
+        {% if route.short_name == 'Acosta' %}
+            San Luis o Turrujal, según se indica. Los viajes desde Jorco no pasan por Acosta centro.
+        {% else %}
+            Los Mangos.
+        {% endif %}    
     </div>
 
     <!-- Tabla de horarios-->
-    <p>
-        <div class="card card-bordered">
-            <div class="card-body">
-     
-                <!-- Selector de los horarios por día -->
-                <div class="text-center">
-                    <p>
-                        <ul class="nav nav-segment nav-pills" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a @click="table_on_select='entresemana_table'"
-                                :class="['nav-link', (day && day < 6) ? 'active' : '']"
-                                id="entresemana-tab" data-toggle="tab"
-                                href="#entresemana" role="tab"
-                                aria-controls="entresemana"
-                                :aria-selected="(day && day < 6)?'true':'false'"><strong>Entresemana</strong></a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a @click="table_on_select='sabado_table'"
-                                :class="['nav-link', day == 6 ? 'active' : '']"
-                                id="sabado-tab" data-toggle="tab"
-                                href="#sabado" role="tab"
-                                aria-controls="sabado"
-                                :aria-selected="(day == 6)?'true':'false'"><strong>Sábado</strong></a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a @click="table_on_select='domingo_table'"
-                                :class="['nav-link', day ? '' : 'active']"
-                                id="domingo-tab" data-toggle="tab"
-                                href="#domingo" role="tab"
-                                aria-controls="domingo"
-                                :aria-selected="(day)?'false':'true'"><strong>Domingo</strong></a>
-                            </li>
-                        </ul>
-                    </p>
-                </div>
 
-                <!-- Tablas con los horarios por día -->
-                <div class="tab-content" id="myTabContent">
-                    <div :class="['tab-pane fade', (day && day < 6) ? 'show active' : '']"
-                        id="entresemana" role="tabpanel" aria-labelledby="entresemana-tab">
-                        <table id="entresemana_table" class="table table-striped table-borderless text-center" style="background: white;">
-                            <thead>
-                                <tr>
-                                    <th><span class="lead">{{ route.short_name }}</span> <br> <i class="fas fa-arrow-circle-down color-ruta"></i> <br> San&nbsp;José</th>
-                                    <th><span class="lead">San&nbsp;José</span> <br> <i class="fas fa-arrow-circle-down color-ruta"></i> <br> {{ route.short_name }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for hacia_sanjose, ramal_0, desde_sanjose, ramal_1 in horario_entresemana %}
-                                <tr>
-                                    <td scope="row">{{ hacia_sanjose }} {% if ramal_0 == 'desde_sanluis' %} <span class="small color-sanluis text-uppercase font-weight-bold">San&nbsp;Luis</span> {% elif ramal_0 == 'desde_turrujal' %} <span class="small color-turrujal text-uppercase font-weight-bold">Turrujal</span> {% elif ramal_0 == 'desde_jorco' %} <span class="small text-info text-uppercase font-weight-bold">Jorco</span> {% elif ramal_0 == 'desde_acosta' %} <span class="small text-secondary text-uppercase font-weight-bold">Acosta</span> {% else %} {% endif %}</td>
-                                    <td scope="row">{{ desde_sanjose }} {% if ramal_1 == 'hacia_sanluis' %} <span class="small color-sanluis text-uppercase font-weight-bold">San&nbsp;Luis</span> {% elif ramal_1 == 'hacia_turrujal' %} <span class="small color-turrujal text-uppercase font-weight-bold">Turrujal</span> {% elif ramal_1 == 'hacia_jorco' %} <span class="small text-info text-uppercase font-weight-bold">Jorco</span> {% elif ramal_1 == 'hacia_acosta' %} <span class="small text-secondary text-uppercase font-weight-bold">Acosta</span> {% else %} {% endif %}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                    <div :class="['tab-pane fade', (day == 6) ? 'show active' : '']"
-                        id="sabado" role="tabpanel" aria-labelledby="sabado-tab">
-                        <table id="sabado_table" class="table table-striped table-borderless text-center" style="background: white;">
-                            <thead>
-                                <tr>
-                                    <th><span class="lead">{{ route.short_name }}</span> <br> <i class="fas fa-arrow-circle-down color-ruta"></i> <br> San&nbsp;José</th>
-                                    <th><span class="lead">San&nbsp;José</span> <br> <i class="fas fa-arrow-circle-down color-ruta"></i> <br> {{ route.short_name }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for hacia_sanjose, ramal_0, desde_sanjose, ramal_1 in horario_sabado %}
-                                <tr>
-                                    <td scope="row">{{ hacia_sanjose }} {% if ramal_0 == 'desde_sanluis' %} <span class="small color-sanluis text-uppercase font-weight-bold">San&nbsp;Luis</span> {% elif ramal_0 == 'desde_turrujal' %} <span class="small color-turrujal text-uppercase font-weight-bold">Turrujal</span> {% elif ramal_0 == 'desde_jorco' %} <span class="small text-info text-uppercase font-weight-bold">Jorco</span> {% elif ramal_0 == 'desde_acosta' %} <span class="small text-secondary text-uppercase font-weight-bold">Acosta</span> {% else %} {% endif %}</td>
-                                    <td scope="row">{{ desde_sanjose }} {% if ramal_1 == 'hacia_sanluis' %} <span class="small color-sanluis text-uppercase font-weight-bold">San&nbsp;Luis</span> {% elif ramal_1 == 'hacia_turrujal' %} <span class="small color-turrujal text-uppercase font-weight-bold">Turrujal</span> {% elif ramal_1 == 'hacia_jorco' %} <span class="small text-info text-uppercase font-weight-bold">Jorco</span> {% elif ramal_1 == 'hacia_acosta' %} <span class="small text-secondary text-uppercase font-weight-bold">Acosta</span> {% else %} {% endif %}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                    <div :class="['tab-pane fade', (!day) ? 'show active' : '']"
-                        id="domingo" role="tabpanel" aria-labelledby="domingo-tab">
-                        <table id="domingo_table" class="table table-striped table-borderless text-center" style="background: white;">
-                            <thead>
-                                <tr>
-                                    <th><span class="lead">{{ route.short_name }}</span> <br> <i class="fas fa-arrow-circle-down color-ruta"></i> <br> San&nbsp;José</th>
-                                    <th><span class="lead">San&nbsp;José</span> <br> <i class="fas fa-arrow-circle-down color-ruta"></i> <br> {{ route.short_name }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for hacia_sanjose, ramal_0, desde_sanjose, ramal_1 in horario_domingo %}
-                                <tr>
-                                    <td scope="row">{{ hacia_sanjose }} {% if ramal_0 == 'desde_sanluis' %} <span class="small color-sanluis text-uppercase font-weight-bold">San&nbsp;Luis</span> {% elif ramal_0 == 'desde_turrujal' %} <span class="small color-turrujal text-uppercase font-weight-bold">Turrujal</span> {% elif ramal_0 == 'desde_jorco' %} <span class="small text-info text-uppercase font-weight-bold">Jorco</span> {% elif ramal_0 == 'desde_acosta' %} <span class="small text-secondary text-uppercase font-weight-bold">Acosta</span> {% else %} {% endif %}</td>
-                                    <td scope="row">{{ desde_sanjose }} {% if ramal_1 == 'hacia_sanluis' %} <span class="small color-sanluis text-uppercase font-weight-bold">San&nbsp;Luis</span> {% elif ramal_1 == 'hacia_turrujal' %} <span class="small color-turrujal text-uppercase font-weight-bold">Turrujal</span> {% elif ramal_1 == 'hacia_jorco' %} <span class="small text-info text-uppercase font-weight-bold">Jorco</span> {% elif ramal_1 == 'hacia_acosta' %} <span class="small text-secondary text-uppercase font-weight-bold">Acosta</span> {% else %} {% endif %}</td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-       
-            </div>
+    <div class="card border-0">
+        <div class="card-body">
+    
+            <!-- Selector de los horarios por día -->
+            <div class="d-flex justify-content-center">
+            <ul class="nav nav-underline" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button @click="table_on_select='entresemana_table'"
+                    :class="['nav-link', (day && day < 6) ? 'active' : '']"
+                    id="entresemana-tab" data-bs-toggle="tab"
+                    data-bs-target="#entresemana" type="button" role="tab"
+                    aria-controls="entresemana"
+                    :aria-selected="(day && day < 6)?'true':'false'"><strong>Entresemana</strong></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button @click="table_on_select='sabado_table'"
+                    :class="['nav-link', day == 6 ? 'active' : '']"
+                    id="sabado-tab" data-bs-toggle="tab"
+                    data-bs-target="#sabado" type="button" role="tab"
+                    aria-controls="sabado"
+                    :aria-selected="(day == 6)?'true':'false'"><strong>Sábado</strong></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button @click="table_on_select='domingo_table'"
+                    :class="['nav-link', day ? '' : 'active']"
+                    id="domingo-tab" data-bs-toggle="tab"
+                    data-bs-target="#domingo" type="button" role="tab"
+                    aria-controls="domingo"
+                    :aria-selected="(day)?'false':'true'"><strong>Domingo</strong></button>
+                </li>
+            </ul>
         </div>
-    </p>
+
+            <!-- Tablas con los horarios por día -->
+        <div class="tab-content mt-5" id="myTabContent">
+            <div :class="['tab-pane fade', (day && day < 6) ? 'show active' : '']"
+                id="entresemana" role="tabpanel" aria-labelledby="entresemana-tab" tabindex="0">
+                <table id="entresemana_table" class="table text-center">
+                        <thead>
+                            <tr>
+                                <th><span class="lead fw-bold">{{ route.short_name }}</span> <br> <i class="bi bi-arrow-down-circle-fill"></i> <br> San&nbsp;José</th>
+                                <th><span class="lead fw-bold">San&nbsp;José</span> <br> <i class="bi bi-arrow-down-circle-fill"></i> <br> {{ route.short_name }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for hacia_sanjose, ramal_0, desde_sanjose, ramal_1 in horario_entresemana %}
+                            <tr>
+                                <td scope="row">{{ hacia_sanjose }} {% if ramal_0 == 'desde_sanluis' %} <span class="small color-sanluis text-uppercase font-weight-bold">San&nbsp;Luis</span> {% elif ramal_0 == 'desde_turrujal' %} <span class="small color-turrujal text-uppercase font-weight-bold">Turrujal</span> {% elif ramal_0 == 'desde_jorco' %} <span class="small text-info text-uppercase font-weight-bold">Jorco</span> {% elif ramal_0 == 'desde_acosta' %} <span class="small text-secondary text-uppercase font-weight-bold">Acosta</span> {% else %} {% endif %}</td>
+                                <td scope="row">{{ desde_sanjose }} {% if ramal_1 == 'hacia_sanluis' %} <span class="small color-sanluis text-uppercase font-weight-bold">San&nbsp;Luis</span> {% elif ramal_1 == 'hacia_turrujal' %} <span class="small color-turrujal text-uppercase font-weight-bold">Turrujal</span> {% elif ramal_1 == 'hacia_jorco' %} <span class="small text-info text-uppercase font-weight-bold">Jorco</span> {% elif ramal_1 == 'hacia_acosta' %} <span class="small text-secondary text-uppercase font-weight-bold">Acosta</span> {% else %} {% endif %}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            </div>
+            <div :class="['tab-pane fade', (day == 6) ? 'show active' : '']"
+                id="sabado" role="tabpanel" aria-labelledby="sabado-tab" tabindex="0">
+                <table id="sabado_table" class="table text-center" style="background: white;">
+                        <thead>
+                            <tr>
+                                <th><span class="lead fw-bold">{{ route.short_name }}</span> <br> <i class="bi bi-arrow-down-circle-fill"></i> <br> San&nbsp;José</th>
+                                <th><span class="lead fw-bold">San&nbsp;José</span> <br> <i class="bi bi-arrow-down-circle-fill"></i> <br> {{ route.short_name }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for hacia_sanjose, ramal_0, desde_sanjose, ramal_1 in horario_sabado %}
+                            <tr>
+                                <td scope="row">{{ hacia_sanjose }} {% if ramal_0 == 'desde_sanluis' %} <span class="small color-sanluis text-uppercase font-weight-bold">San&nbsp;Luis</span> {% elif ramal_0 == 'desde_turrujal' %} <span class="small color-turrujal text-uppercase font-weight-bold">Turrujal</span> {% elif ramal_0 == 'desde_jorco' %} <span class="small text-info text-uppercase font-weight-bold">Jorco</span> {% elif ramal_0 == 'desde_acosta' %} <span class="small text-secondary text-uppercase font-weight-bold">Acosta</span> {% else %} {% endif %}</td>
+                                <td scope="row">{{ desde_sanjose }} {% if ramal_1 == 'hacia_sanluis' %} <span class="small color-sanluis text-uppercase font-weight-bold">San&nbsp;Luis</span> {% elif ramal_1 == 'hacia_turrujal' %} <span class="small color-turrujal text-uppercase font-weight-bold">Turrujal</span> {% elif ramal_1 == 'hacia_jorco' %} <span class="small text-info text-uppercase font-weight-bold">Jorco</span> {% elif ramal_1 == 'hacia_acosta' %} <span class="small text-secondary text-uppercase font-weight-bold">Acosta</span> {% else %} {% endif %}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                </table>
+            </div>
+            <div :class="['tab-pane fade', (!day) ? 'show active' : '']"
+                id="domingo" role="tabpanel" aria-labelledby="domingo-tab" tabindex="0">
+                <table id="domingo_table" class="table text-center" style="background: white;">
+                        <thead>
+                            <tr>
+                                <th><span class="lead fw-bold">{{ route.short_name }}</span> <br> <i class="bi bi-arrow-down-circle-fill"></i> <br> San&nbsp;José</th>
+                                <th><span class="lead fw-bold">San&nbsp;José</span> <br> <i class="bi bi-arrow-down-circle-fill"></i> <br> {{ route.short_name }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for hacia_sanjose, ramal_0, desde_sanjose, ramal_1 in horario_domingo %}
+                            <tr>
+                                <td scope="row">{{ hacia_sanjose }} {% if ramal_0 == 'desde_sanluis' %} <span class="small color-sanluis text-uppercase font-weight-bold">San&nbsp;Luis</span> {% elif ramal_0 == 'desde_turrujal' %} <span class="small color-turrujal text-uppercase font-weight-bold">Turrujal</span> {% elif ramal_0 == 'desde_jorco' %} <span class="small text-info text-uppercase font-weight-bold">Jorco</span> {% elif ramal_0 == 'desde_acosta' %} <span class="small text-secondary text-uppercase font-weight-bold">Acosta</span> {% else %} {% endif %}</td>
+                                <td scope="row">{{ desde_sanjose }} {% if ramal_1 == 'hacia_sanluis' %} <span class="small color-sanluis text-uppercase font-weight-bold">San&nbsp;Luis</span> {% elif ramal_1 == 'hacia_turrujal' %} <span class="small color-turrujal text-uppercase font-weight-bold">Turrujal</span> {% elif ramal_1 == 'hacia_jorco' %} <span class="small text-info text-uppercase font-weight-bold">Jorco</span> {% elif ramal_1 == 'hacia_acosta' %} <span class="small text-secondary text-uppercase font-weight-bold">Acosta</span> {% else %} {% endif %}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
     
     <!-- Botón de descarga de horario como imagen -->
     <div class="text-center">
         <button class="btn btn-outline-secondary btn-pill btn-xs" @click="downloadTableAsImage()">
-            <i class="fas fa-image"></i>
+            <i class="bi bi-table"></i>
             Descargar horario actual como imagen
         </button>
     </div>
@@ -264,15 +237,16 @@ NOTA: TODO: Este div no tiene terminación, hay que hacer que cierre consistente
     <!-- Datos de actualización de horarios, GTFS y Google Maps -->
     <p>
         <div class="small">
-            <ol class="fa-ul">
-                <li><span class="fa-li"><i class="fas fa-calendar-check"></i></span>Último cambio de horarios el <span class="font-weight-bold">{% for fecha in fechas %}{{ fecha.horarios }}{% endfor %}</span></li>
-                <li><span class="fa-li"><i class="fas fa-database"></i></span>Datos de <a href="/gtfs/">GTFS</a></li>
-                <li><span class="fa-li"><i class="fab fa-google"></i></span>Ver en <a href="https://www.google.com/maps/@9.7985547,-84.1334907,14.81z" target="_blank">Google Maps</a></li>
-            </ol>
+            <ul>
+                <li><i class="bi bi-calendar-check-fill"></i> Último cambio de horarios el <span class="font-weight-bold">{% for fecha in fechas %}{{ fecha.horarios }}{% endfor %}</span></li>
+                <li><i class="bi bi-file-earmark-bar-graph-fill"></i> Datos de <a href="/gtfs/">GTFS</a></li>
+                <li><i class="bi bi-google"></i> Ver en <a href="https://www.google.com/maps/@9.7985547,-84.1334907,14.81z" target="_blank">Google Maps</a></li>
+            </ul>
         </div>
     </p>
 
     <!-- Lista de feriados -->
+    {% comment %}
     {% if feriados %}
     <div class="alert alert-soft-secondary" role="alert">
         <div>
@@ -299,6 +273,7 @@ NOTA: TODO: Este div no tiene terminación, hay que hacer que cierre consistente
         </div>
     </div>
     {% endif %}
+    {% endcomment %}
 
 </section>
 
@@ -307,28 +282,22 @@ NOTA: TODO: Este div no tiene terminación, hay que hacer que cierre consistente
 <section id="tarifas">
 
     <hr>
-    <h2><i class="fas fa-ticket-alt color-ruta"></i> Tarifas</h2>
+    <h2><i class="bi bi-ticket-detailed-fill color-ruta"></i> Tarifas</h2>
 
     <!-- Nota sobre "solo efectivo" -->
-    <div class="alert alert-soft-secondary" role="alert">
-        <p>
-            <ol class="fa-ul">
-                <li><span class="fa-li"><i class="fas fa-money-bill-wave"></i></span>
-                    Pagos a bordo en efectivo.
-                </li>
-            </ol>
-        </p>
-    </div>
+    <p>
+        <i class="bi bi-cash"></i> Pagos a bordo en efectivo.
+    </p>
 
     {% include "tarifas-cards.html" %}
 
     <!-- Datos de actualización de tarifas, autorización de ARESEP -->
     <p>
         <div class="small">
-            <ol class="fa-ul">
-                <li><span class="fa-li"><i class="fas fa-calendar-check"></i></span>Último cambio de tarifas el <strong>{% for fecha in fechas %}{{ fecha.tarifas }}{% endfor %}</strong></li>
-                <li><span class="fa-li"><i class="fas fa-balance-scale"></i></span>Precios autorizados por <a href="https://aresep.go.cr/autobus/tarifas" target="_blank">ARESEP</a></li>
-             </ol>
+            <ul>
+                <li><i class="bi bi-calendar-check-fill"></i> Último cambio de tarifas el <strong>{% for fecha in fechas %}{{ fecha.tarifas }}{% endfor %}</strong></li>
+                <li><i class="bi bi-search"></i> Precios autorizados por <a href="https://aresep.go.cr/autobus/tarifas" target="_blank">ARESEP</a></li>
+            </ul>
         </div>
     </p>
 
@@ -338,7 +307,7 @@ NOTA: TODO: Este div no tiene terminación, hay que hacer que cierre consistente
 <section id="mapa">
 
     <hr>
-    <h2><i class="fas fa-map color-ruta"></i> Mapa de la ruta</h2>
+    <h2><i class="bi bi-map-fill color-ruta"></i> Mapa de la ruta</h2>
     {% if route.short_name == 'Acosta' %}
     <mapa-acosta></mapa-acosta>
     {% else %}

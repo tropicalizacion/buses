@@ -4,146 +4,108 @@
 
 <!DOCTYPE html>
 <html lang="es">
-
   <head>
-
-    <meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Horarios, mapas, tarifas y más información sobre las rutas de autobús de San Ignacio de Acosta y San Gabriel de Aserrí." />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="description"
+      content="Horarios, mapas, tarifas y más información sobre las rutas de autobús de San Ignacio de Acosta y San Gabriel de Aserrí." />
 
     <!-- Título de la pestaña del navegador -->
 
     <title>{% block page_title %}{% endblock %} - TSG</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{% static 'svg/logos/TSG-favicon.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'svg/logos/TSG-favicon.png' %}" />
 
     <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
 
-    <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="{% static 'vendor/fontawesome/css/all.min.css' %}">
-    <link rel="stylesheet" href="{% static 'vendor/hs-mega-menu/dist/hs-mega-menu.min.css' %}">
-    <link rel="stylesheet" href="{% static 'vendor/dzsparallaxer/dzsparallaxer.css' %}">
-    <link rel="stylesheet" href="{% static 'vendor/cubeportfolio/css/cubeportfolio.min.css' %}">
-    <link rel="stylesheet" href="{% static 'vendor/aos/dist/aos.css' %}">
+    <!-- CSS Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous" />
 
-    <!-- CSS Front Template -->
-    <link rel="stylesheet" href="{% static 'css/theme.min.css' %}">
+    <!-- CSS Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
 
     <!-- Custom CSS general -->
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    <link rel="stylesheet" href="{% static 'css/colores_rutas.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/colores_rutas.css' %}" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NB0MQM5B40"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-NB0MQM5B40');
+      gtag("config", "G-NB0MQM5B40");
     </script>
 
     {% block custom_header %}
     <!-- Aquí el source del CSS específico de cada página -->
     {% endblock %}
-
   </head>
 
   <body>
-
     <!-- ENCABEZADO -->
 
-<!-- ========== HEADER ========== -->
-<header id="header" class="header header-sticky-top-lg">
-  <div class="header-section fondo-color-ruta">
-    <div id="logoAndNav" class="container">
-      <!-- Nav -->
-      <nav class="js-mega-menu navbar navbar-expand-lg">
-        <!-- Logo -->
-        <a class="navbar-brand" href="#" aria-label="Front">
-          <img src="{% static 'svg/logos/TSG-sobre-blanco.png' %}" alt="Logo">
+    <!-- ========== Navbar ========== -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+      <div class="container container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="{% static 'svg/logos/TSG.png' %}" alt="Logo" height="30" />
         </a>
-        <!-- End Logo -->
-
-        <!-- Responsive Toggle Button -->
-        <button type="button" class="navbar-toggler btn btn-icon btn-sm rounded-circle"
-                aria-label="Toggle navigation"
-                aria-expanded="false"
-                aria-controls="navBar"
-                data-toggle="collapse"
-                data-target="#navBar">
-          <span class="navbar-toggler-default">
-            <svg width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-              <path fill="currentColor" d="M17.4,6.2H0.6C0.3,6.2,0,5.9,0,5.5V4.1c0-0.4,0.3-0.7,0.6-0.7h16.9c0.3,0,0.6,0.3,0.6,0.7v1.4C18,5.9,17.7,6.2,17.4,6.2z M17.4,14.1H0.6c-0.3,0-0.6-0.3-0.6-0.7V12c0-0.4,0.3-0.7,0.6-0.7h16.9c0.3,0,0.6,0.3,0.6,0.7v1.4C18,13.7,17.7,14.1,17.4,14.1z"/>
-            </svg>
-          </span>
-          <span class="navbar-toggler-toggled">
-            <svg width="14" height="14" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
-              <path fill="currentColor" d="M11.5,9.5l5-5c0.2-0.2,0.2-0.6-0.1-0.9l-1-1c-0.3-0.3-0.7-0.3-0.9-0.1l-5,5l-5-5C4.3,2.3,3.9,2.4,3.6,2.6l-1,1 C2.4,3.9,2.3,4.3,2.5,4.5l5,5l-5,5c-0.2,0.2-0.2,0.6,0.1,0.9l1,1c0.3,0.3,0.7,0.3,0.9,0.1l5-5l5,5c0.2,0.2,0.6,0.2,0.9-0.1l1-1 c0.3-0.3,0.3-0.7,0.1-0.9L11.5,9.5z"/>
-            </svg>
-          </span>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- End Responsive Toggle Button -->
-
-        <!-- Navigation -->
-        <div id="navBar" class="collapse navbar-collapse">
-          <div class="navbar-body header-sticky-top-inner">
-            <ul class="navbar-nav lead">
-              
-              <!-- Inicio -->
-              <li class="navbar-nav-item">
-                <a href="/" class="nav-link text-dark">Inicio</a>
-              </li>
-              <!-- Fin Inicio -->
-
-              <!-- Rutas -->
-              <li class="hs-has-sub-menu navbar-nav-item">
-                <a id="blogMegaMenu" class="hs-mega-menu-invoker nav-link nav-link-toggle text-dark" href="javascript:;" aria-haspopup="true" aria-expanded="false" aria-labelledby="blogSubMenu">
-                  Rutas
-                </a>
-                <!-- Rutas - Submenu -->
-                <div id="blogSubMenu" class="hs-sub-menu dropdown-menu" aria-labelledby="blogMegaMenu" style="min-width: 230px;">
-                  <a class="dropdown-item" href="/rutas/acosta"><i class="fas fa-bus" style="color:#FFA500;"></i> &nbsp; <strong>Acosta</strong></a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="/rutas/sangabriel"><i class="fas fa-bus" style="color:#008000;"></i> &nbsp; <strong>San Gabriel</strong></a>
-                </div>
-                <!-- Fin Submenu -->
-              </li>
-              <!-- Fin Rutas -->
-
-              <!-- Empresa -->
-              <li class="navbar-nav-item">
-                <a href="/empresa/" class="nav-link text-dark">Empresa</a>
-              </li>
-              <!-- Fin Empresa -->
-
-              <!-- Contacto -->
-              <li class="navbar-nav-item">
-                <a href="/contacto/" class="nav-link text-dark">Contacto</a>
-              </li>
-              <!-- Fin Contacto -->
-
-            </ul>
-          </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/rutas/acosta">
+                <i class="bi bi-bus-front-fill color-sanluis"></i>
+                <strong>Acosta</strong>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/rutas/acosta">
+                <i class="bi bi-bus-front-fill color-turrujal"></i>
+                <strong>Turrujal</strong>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-dark" href="/rutas/sangabriel">
+                <i class="bi bi-bus-front-fill color-sangabriel"></i>
+                <strong>San Gabriel</strong>
+              </a>
+            </li>
+          </ul>
         </div>
-        <!-- End Navigation -->
-      </nav>
-      <!-- End Nav -->
-    </div>
-  </div>
-</header>
-<!-- ========== END HEADER ========== -->
+      </div>
+    </nav>
+    <!-- ========== End navbar ========== -->
 
     <!-- CONTENIDO PRINCIPAL -->
 
-    <main role="main" class="container" id="content">
-
+    <main role="main" class="container mt-4" id="content">
       {% block content %}
       <!-- Aquí el contenido de cada página -->
       {% endblock %}
-
     </main>
 
     <!-- PIE DE PÁGINA -->
@@ -156,7 +118,7 @@
               <!-- Logo -->
               <div class="mb-4">
                 <a href="index.html" aria-label="Front">
-                  <img class="brand" src="{% static '/svg/logos/TSG-blanco.png' %}" alt="Logo">
+                  <img class="brand" src="{% static '/svg/logos/TSG-blanco.png' %}" alt="Logo" />
                 </a>
               </div>
               <!-- End Logo -->
@@ -164,44 +126,43 @@
               <!-- Nav Link -->
               <ul class="nav nav-sm nav-x-0 nav-white flex-column">
                 <li class="nav-item">
-                  <a class="nav-link media" href="https://ul.waze.com/ul?ll=9.92929648%2C-84.07635212&navigate=yes&zoom=17">
-                      <span class="media">
-                        <span class="fas fa-location-arrow mt-1 mr-2"></span>
-                        <span class="media-body">
-                          San Ignacio de Acosta &nbsp;
-                          <img class="dropdown-item-icon" src="{% static '/vendor/flag-icon-css/flags/4x3/cr.svg' %}" alt="Costa Rica">
-                        </span>
+                  <a
+                    class="nav-link media"
+                    href="https://ul.waze.com/ul?ll=9.92929648%2C-84.07635212&navigate=yes&zoom=17">
+                    <span class="media">
+                      <span class="fas fa-location-arrow mt-1 mr-2"></span>
+                      <span class="media-body">
+                        Salitral, San Gabriel de Aserrí &nbsp;
+                        <img
+                          class="dropdown-item-icon"
+                          src="{% static '/vendor/flag-icon-css/flags/4x3/cr.svg' %}"
+                          alt="Costa Rica" />
                       </span>
+                    </span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link media" href="tel:+506-2410-0330">
-                      <span class="media">
-                        <span class="fas fa-phone-alt mt-1 mr-2"></span>
-                        <span class="media-body">
-                          2410-0330
-                        </span>
-                      </span>
+                    <span class="media">
+                      <span class="fas fa-phone-alt mt-1 mr-2"></span>
+                      <span class="media-body">2410-0330</span>
+                    </span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link media" href="mailto:transgabriel@ice.co.cr">
-                      <span class="media">
-                        <span class="fas fa-envelope mt-1 mr-2"></span>
-                        <span class="media-body">
-                          transgabriel@ice.co.cr
-                        </span>
-                      </span>
+                    <span class="media">
+                      <span class="fas fa-envelope mt-1 mr-2"></span>
+                      <span class="media-body">transgabriel@ice.co.cr</span>
+                    </span>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link media" href="mailto:transgabriel@ice.co.cr">
-                      <span class="media">
-                        <span class="fas fa-clock mt-1 mr-2"></span>
-                        <span class="media-body">
-                          Lunes a viernes: 8:00 am - 5:00 pm
-                        </span>
-                      </span>
+                    <span class="media">
+                      <span class="fas fa-clock mt-1 mr-2"></span>
+                      <span class="media-body">Lunes a viernes: 8:00 am - 5:00 pm</span>
+                    </span>
                   </a>
                 </li>
               </ul>
@@ -213,10 +174,18 @@
 
               <!-- Nav Link -->
               <ul class="nav nav-sm nav-x-0 nav-white flex-column">
-                <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" href="/rutas/">Rutas</a></li>
-                <li class="nav-item"><a class="nav-link" href="/empresa/">Empresa</a></li>
-                <li class="nav-item"><a class="nav-link" href="/contacto/">Contacto</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/rutas/">Rutas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/empresa/">Empresa</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contacto/">Contacto</a>
+                </li>
               </ul>
               <!-- End Nav Link -->
             </div>
@@ -226,19 +195,24 @@
 
               <!-- Nav Link -->
               <ul class="nav nav-sm nav-x-0 nav-white flex-column">
-                <li class="nav-item"><a class="nav-link" href="https://www.ctp.go.cr/">Consejo de Transporte Público</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://www.mopt.go.cr/">Ministerio de Obras Públicas y Transportes</a></li>
-                <li class="nav-item"><a class="nav-link" href="https://aresep.go.cr/autobus">Autoridad Reguladora de los Servicios Públicos</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.ctp.go.cr/">Consejo de Transporte Público</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://www.mopt.go.cr/">Ministerio de Obras Públicas y Transportes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="https://aresep.go.cr/autobus">
+                    Autoridad Reguladora de los Servicios Públicos
+                  </a>
+                </li>
               </ul>
               <!-- End Nav Link -->
             </div>
-
-
-
           </div>
         </div>
 
-        <hr class="opacity-xs my-0">
+        <hr class="opacity-xs my-0" />
 
         <div class="space-1">
           <div class="row align-items-md-center mb-7">
@@ -250,7 +224,10 @@
                 </li>
                 <li class="nav-item opacity mx-3">&#47;</li>-->
                 <li class="nav-item">
-                  <a class="nav-link" href="/acerca"><i class="fas fa-code"></i>&nbsp; Acerca de este sitio web</a>
+                  <a class="nav-link" href="/acerca">
+                    <i class="fas fa-code"></i>
+                    &nbsp; Acerca de este sitio web
+                  </a>
                 </li>
               </ul>
               <!-- End Nav Link -->
@@ -275,7 +252,11 @@
 
           <!-- Copyright -->
           <div class="w-md-75 text-lg-center mx-lg-auto">
-            <p class="text-white opacity-sm">Esta página utiliza <a class="font-weight-bold text-white" href="/gtfs/">GTFS</a>, un estándar de datos abiertos para el transporte público.</p>
+            <p class="text-white opacity-sm">
+              Esta página utiliza
+              <a class="font-weight-bold text-white" href="/gtfs/">GTFS</a>
+              , un estándar de datos abiertos para el transporte público.
+            </p>
             <p class="text-white opacity-sm small">&copy; Transportes San Gabriel, 2022.</p>
           </div>
           <!-- End Copyright -->
@@ -291,69 +272,10 @@
     <!-- Aquí el source del JS específico de cada página -->
     {% endblock %}
 
-    <!-- JS Global Compulsory  -->
-    <script src="{% static 'vendor/jquery/dist/jquery.min.js' %}"></script>
-    <script src="{% static 'vendor/jquery-migrate/dist/jquery-migrate.min.js' %}"></script>
-    <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-
-    <!-- JS Implementing Plugins -->
-    <script src="{% static 'vendor/hs-header/dist/hs-header.min.js' %}"></script>
-    <script src="{% static 'vendor/hs-go-to/dist/hs-go-to.min.js' %}"></script>
-    <script src="{% static 'vendor/hs-unfold/dist/hs-unfold.min.js' %}"></script>
-    <script src="{% static 'vendor/hs-mega-menu/dist/hs-mega-menu.min.js' %}"></script>
-    <script src="{% static 'vendor/hs-show-animation/dist/hs-show-animation.min.js' %}"></script>
-    <script src="{% static 'vendor/hs-sticky-block/dist/hs-sticky-block.min.js' %}"></script>
-    <script src="{% static 'vendor/hs-counter/dist/hs-counter.min.js' %}"></script>
-    <script src="{% static 'vendor/appear/dist/appear.min.js' %}"></script>
-    <script src="{% static 'vendor/cubeportfolio/js/jquery.cubeportfolio.min.js' %}"></script>
-    <script src="{% static 'vendor/jquery-validation/dist/jquery.validate.min.js' %}"></script>
-    <script src="{% static 'vendor/dzsparallaxer/dzsparallaxer.js' %}"></script>
-    <script src="{% static 'vendor/typed.js/lib/typed.min.js' %}"></script>
-    <script src="{% static 'vendor/aos/dist/aos.js' %}"></script>
-    <script src="{% static 'vendor/hs-scroll-nav/dist/hs-scroll-nav.min.js' %}"></script>
-
-    <!-- JS Front -->
-    <script src="{% static 'js/theme.min.js' %}"></script>
-
-  <!-- JS Plugins Init. -->
-  <script>
-    $(document).on('ready', function () {
-      // INITIALIZATION OF HEADER
-      // =======================================================
-      var header = new HSHeader($('#header')).init();
-  
-  
-      // INITIALIZATION OF MEGA MENU
-      // =======================================================
-      var megaMenu = new HSMegaMenu($('.js-mega-menu')).init();
-    });
-
-    $(document).on('ready', function () {
-      // INITIALIZATION OF COUNTER
-      // =======================================================
-      $('.js-counter').each(function() {
-        var counter = new HSCounter($(this)).init();
-      });
-    });
-
-    $(document).on('ready', function () {
-      // INITIALIZATION OF SCROLL NAV
-      // =======================================================
-      $('.js-scroll-nav').each(function () {
-        var scrollNav = new HSScrollNav($(this)).init();
-      });
-    });
-
-    $(document).on('ready', function () {
-      // INITIALIZATION OF GO TO
-      // =======================================================
-      $('.js-go-to').each(function () {
-        var goTo = new HSGoTo($(this)).init();
-      });
-    });
-
-  </script>
-
+    <!-- JS Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"></script>
   </body>
-
 </html>
